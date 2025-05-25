@@ -1,0 +1,108 @@
+google/gemma-2-2b-it:
+  cot:
+    temperature: 0.5
+    top_p: 0.95
+    max_new_tokens: 1024
+  tot:
+    temperature: 0.6
+    top_p: 0.92
+    max_new_tokens: 384
+    num_thoughts: 5
+    max_depth: 4
+    k_select: 3
+  passk:
+    k: 10
+    k_values: [1, 5, 10]
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+
+google/gemma-2-9b-it:
+  cot:
+    temperature: 0.5
+    top_p: 0.9
+    max_new_tokens: 1024
+  tot:
+    temperature: 0.6
+    top_p: 0.9
+    max_new_tokens: 256
+    num_thoughts: 3
+    max_depth: 3
+    k_select: 2
+  passk:
+    k: 10
+    k_values: [1, 5, 10]
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+
+deepseek-ai/DeepSeek-R1-Distill-Llama-8B:
+  cot:
+    temperature: 0.6
+    top_p: 0.92
+    max_new_tokens: 768
+  tot:
+    temperature: 0.6
+    top_p: 0.9
+    max_new_tokens: 256
+    num_thoughts: 3
+    max_depth: 3
+    k_select: 2
+  passk:
+    k: 10
+    k_values: [1, 5, 10]
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+
+gpt2:
+  cot:
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 256
+  tot:
+    temperature: 0.7
+    top_p: 0.9
+    max_new_tokens: 128
+    num_thoughts: 3
+    max_depth: 3
+    k_select: 2
+  passk:
+    k: 10
+    k_values: [1, 5, 10]
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+
+EleutherAI/pythia-2.8b:
+  cot:
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+  tot:
+    temperature: 0.7
+    top_p: 0.9
+    max_new_tokens: 256
+    num_thoughts: 3
+    max_depth: 3
+    k_select: 2
+  passk:
+    k: 10
+    k_values: [1, 5, 10]
+    temperature: 0.7
+    top_p: 0.95
+    max_new_tokens: 512
+
+# VRAM-specific batch size presets (GiB → per-model values)
+vram_configs:
+  48:  # e.g. NVIDIA RTX 6000 Ada (48 GiB)
+    batch_sizes:
+      google/gemma-2-2b-it:
+        gsm8k: 256
+        math500: 64
+      google/gemma-2-9b-it:
+        gsm8k: 32
+      deepseek-ai/DeepSeek-R1-Distill-Llama-8B:
+        aime: 1
+      gpt2:
+        gsm8k: 512

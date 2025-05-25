@@ -1,0 +1,8 @@
+# transformers 4.40+ adds official Gemma support
+transformers==4.46.0
+torch>=2.2.0
+accelerate>=0.28.0
+sentencepiece>=0.1.99
+datasets
+tqdm>=4.65.0
+PyYAML>=6.0
